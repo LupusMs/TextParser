@@ -47,14 +47,21 @@ void Parser::calculateStatistics(QString path)
         }
     }
 }
-
+//TODO Implement sorting
 QString Parser::getResult()
 {
     QString res;
     QHashIterator<QString, int> i(hash);
+    QMap<int, QString> sortedRes;
     while (i.hasNext()) {
         i.next();
+        sortedRes.insert(i.value(), i.key());
         res +=  QString(i.key() + " : %1 <br/><br/>").arg(i.value());
+    }
+
+    for(auto e : sortedRes.keys())
+    {
+      res +=  QString(sortedRes.value(e) + " : %1 <br/><br/>").arg(e);
     }
 
     return res;
