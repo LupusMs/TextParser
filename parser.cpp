@@ -5,19 +5,57 @@ Parser::Parser()
 
 }
 
-QString Parser::parseFile(QString path)
+/**
+ * @brief Parser::parseFile Parsing txt file
+ * @param path
+ * @return
+ */
+void Parser::parseFile(QString path)
 {
     QFile file (path);
     if(!file.open(QIODevice::ReadOnly)) {
         QMessageBox::information(0, "error", file.errorString());
     }
     QTextStream in(&file);
-    QString line;
-    while(!in.atEnd()) {
-        line = in.readLine();
-        }
-
+    QString output = in.readAll();
     file.close();
-    return line;
 
+    //Update object field
+    text = output;
+}
+
+/**
+ * @brief Parser::calculateStatistics
+ * Calculates words' occurences in a text
+ * @param path
+ */
+void Parser::calculateStatistics(QString path)
+{
+    parseFile(path);
+    QStringList words = text.split(" ");
+    hash.insert("first", 1);
+
+    //Adding words to the hash map and calculating occurences
+    for(const auto& i : words ){
+        if(!hash.contains(i)){
+            //adding new word
+           hash.insert(i, 1);
+        }
+        else {
+            //increasing the count
+            hash.insert(i, hash.value(i)+ 1);
+        }
+    }
+}
+
+QString Parser::getResult()
+{
+    QString res;
+    QHashIterator<QString, int> i(hash);
+    while (i.hasNext()) {
+        i.next();
+        res +=  QString(i.key() + " : %1 <br/><br/>").arg(i.value());
+    }
+
+    return res;
 }

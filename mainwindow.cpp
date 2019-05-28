@@ -17,6 +17,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     Parser* myParser = new Parser();
-    ui->label_output->setText(ui->label_output->text() + " : success " + myParser->parseFile(ui->lineEdit->text()));
+    myParser->calculateStatistics(ui->lineEdit->text());
+    ui->label_output->setText(myParser->getResult());
     delete myParser;
 }

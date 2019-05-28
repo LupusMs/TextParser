@@ -27,7 +27,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit"/>
+         <widget class="QLineEdit" name="lineEdit">
+          <property name="text">
+           <string>c:\try.txt</string>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QPushButton" name="pushButton">
@@ -58,14 +62,26 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="maximumSize">
+         <size>
+          <width>800</width>
+          <height>600</height>
+         </size>
+        </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(243, 243, 243);</string>
+        </property>
+        <property name="locale">
+         <locale language="German" country="Germany"/>
         </property>
         <property name="text">
          <string>Output</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
         </property>
        </widget>
       </item>

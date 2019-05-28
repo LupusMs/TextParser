@@ -4,12 +4,18 @@
 #include <QFile>
 #include <QMessageBox>
 #include <QTextStream>
+#include <sstream>
+#include <string>
 
 class Parser
 {
+    QString text;
+    QHash<QString, int> hash;
 public:
     Parser();
-    QString parseFile(QString path);
+    void parseFile(QString path);
+    void calculateStatistics(QString path);
+    QString getResult();
 };
 
 #endif // PARSER_H
