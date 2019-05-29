@@ -33,7 +33,7 @@ void Parser::calculateStatistics(QString path)
 {
     parseFile(path);
     QStringList words = text.split(" ");
-    hash.insert("first", 1);
+
 
     //Adding words to the hash map and calculating occurences
     for(const auto& i : words ){
@@ -51,18 +51,20 @@ void Parser::calculateStatistics(QString path)
 QString Parser::getResult()
 {
     QString res;
-    QHashIterator<QString, int> i(hash);
+    QHashIterator<QString, int> i(hash);    
     QMap<int, QString> sortedRes;
+
     while (i.hasNext()) {
         i.next();
-        sortedRes.insert(i.value(), i.key());
-        res +=  QString(i.key() + " : %1 <br/><br/>").arg(i.value());
+        sortedRes.insert(i.value(), i.key());        
+    }
+    QMapIterator<int, QString> mapIt(sortedRes);
+    mapIt.toBack();
+    while (mapIt.hasPrevious()) {
+        mapIt.previous();
+        res +=  QString(mapIt.value() + " : %1 <br></br><br></br>").arg(mapIt.key());
     }
 
-    for(auto e : sortedRes.keys())
-    {
-      res +=  QString(sortedRes.value(e) + " : %1 <br/><br/>").arg(e);
-    }
 
     return res;
 }
