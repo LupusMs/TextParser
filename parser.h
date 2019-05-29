@@ -16,6 +16,7 @@ public:
     void parseFile(QString path);
     void calculateStatistics(QString path);
     QString getResult();
+    QString getText();
 };
 
 #endif // PARSER_H

@@ -68,3 +68,8 @@ QString Parser::getResult()
 
     return res;
 }
+
+QString Parser::getText()
+{
+    return text;
+}
