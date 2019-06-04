@@ -5,6 +5,8 @@
 #include <QFile>
 #include <QMessageBox>
 #include <QTextStream>
+#include <QDebug>
+#include <QDir>
 #include "parser.h"
 
 namespace Ui {

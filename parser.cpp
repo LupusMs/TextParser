@@ -1,5 +1,4 @@
 #include "parser.h"
-
 Parser::Parser()
 {
 
@@ -32,10 +31,10 @@ void Parser::parseFile(QString path)
 void Parser::calculateStatistics(QString path)
 {
     parseFile(path);
-    QStringList words = text.split(" ");
-
+    QStringList words = text.split(QRegExp("\\s+"), QString::SkipEmptyParts);
 
     //Adding words to the hash map and calculating occurences
+    //TODO use more efficient hashing?
     for(const auto& i : words ){
         if(!hash.contains(i)){
             //adding new word
@@ -44,29 +43,36 @@ void Parser::calculateStatistics(QString path)
         else {
             //increasing the count
             hash.insert(i, hash.value(i)+ 1);
+
         }
     }
 }
-//TODO Implement sorting
+
+/** Returning sorted occurances result WORD : OCCURENCE
+ * @brief Parser::getResult
+ * @return
+ */
 QString Parser::getResult()
 {
     QString res;
-    QHashIterator<QString, int> i(hash);    
-    QMap<int, QString> sortedRes;
+    QHashIterator<QString, int> i(hash);
+    QList<QPair<int,QString> > sortedRes;
 
+    //Filling QList
     while (i.hasNext()) {
-        i.next();
-        sortedRes.insert(i.value(), i.key());        
-    }
-    QMapIterator<int, QString> mapIt(sortedRes);
-    mapIt.toBack();
-    while (mapIt.hasPrevious()) {
-        mapIt.previous();
-        res +=  QString(mapIt.value() + " : %1 <br></br><br></br>").arg(mapIt.key());
+        i.next();       
+        sortedRes.append(qMakePair(i.value(), i.key()));
     }
 
+    //Sorting and reversing
+    std::sort(sortedRes.begin(), sortedRes.end());
+    std::reverse(sortedRes.begin(), sortedRes.end());
 
-    return res;
+    //Forming an output string
+    for (int i=0;i<sortedRes.count();i++){
+        QPair<int, QString> pair = sortedRes.at(i);
+        res +=  QString(pair.second + " : %1 <br></br><br></br>").arg(pair.first);
+    }    return res;
 }
 
 QString Parser::getText()

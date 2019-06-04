@@ -13,6 +13,7 @@ public:
 
 private slots:
     void testParsing();
+    void testResult();
 };
 
 #endif // TEST_PARSER_H

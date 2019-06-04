@@ -6,6 +6,7 @@
 #include <QTextStream>
 #include <sstream>
 #include <string>
+#include <QDebug>
 
 class Parser
 {
