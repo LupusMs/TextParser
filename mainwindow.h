@@ -7,6 +7,7 @@
 #include <QTextStream>
 #include <QDebug>
 #include <QDir>
+#include <QScrollArea>
 #include "parser.h"
 
 namespace Ui {

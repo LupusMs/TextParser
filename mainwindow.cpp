@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
+    ui->setupUi(this);    
 }
 
 MainWindow::~MainWindow()
@@ -16,12 +16,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    Parser* myParser = new Parser();
-    myParser->parseFile(ui->lineEdit->text());
-    qDebug() << myParser->getText();
+    Parser* myParser = new Parser();   
+    myParser->parseFile(ui->lineEdit->text());    
     myParser->calculateStatistics(ui->lineEdit->text());
-    ui->label_output->setText(myParser->getResult());
-    qDebug() << myParser->getResult();
+    ui->textBrowser->setText(myParser->getResult());
+
+
 
     delete myParser;
 }
