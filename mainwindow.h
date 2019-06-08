@@ -8,6 +8,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QScrollArea>
+#include <QFileDialog>
 #include "parser.h"
 
 namespace Ui {
@@ -18,12 +19,15 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
     void on_pushButton_clicked();
+
+    void on_pushButton_choose_clicked();
 
 private:
     Ui::MainWindow *ui;
