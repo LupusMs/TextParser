@@ -36,6 +36,12 @@ void Parser::calculateStatistics(QString path)
     //Adding words to the hash map and calculating occurences
     //TODO use more efficient hashing?
     for(const auto& i : words ){
+
+        //Ignoring 1-char words
+        if (i.length() < 2){
+            continue;
+        }
+
         if(!hash.contains(i)){
             //adding new word
            hash.insert(i, 1);
