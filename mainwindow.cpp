@@ -18,9 +18,11 @@ MainWindow::~MainWindow()
 
 // OK button clicked, starting parsing and analysing
 void MainWindow::on_pushButton_clicked()
-{       
-    myParser->parseFile(ui->lineEdit->text());    
-    myParser->calculateStatistics(ui->lineEdit->text());
+{
+    QString path = ui->lineEdit->text();
+    int length =  ui->spinBox->value();
+    myParser->parseFile(path);
+    myParser->calculateStatistics(path, length);
     ui->textBrowser->setText(myParser->getResult());    
 }
 

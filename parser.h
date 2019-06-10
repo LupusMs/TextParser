@@ -15,7 +15,7 @@ class Parser
 public:
     Parser();
     void parseFile(QString path);
-    void calculateStatistics(QString path);
+    void calculateStatistics(QString path, int length);
     QString getResult();
     QString getText();
 };

@@ -77,6 +77,10 @@
   <property name="windowTitle">
    <string>TextParser</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../Downloads/icons8-читать-80.png</normaloff>../../Downloads/icons8-читать-80.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
@@ -131,6 +135,24 @@
          </widget>
         </item>
        </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Min word length</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox">
+        <property name="minimum">
+         <number>2</number>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>

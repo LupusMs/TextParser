@@ -28,7 +28,7 @@ void Parser::parseFile(QString path)
  * Calculates words' occurences in a text
  * @param path
  */
-void Parser::calculateStatistics(QString path)
+void Parser::calculateStatistics(QString path, int length)
 {
     parseFile(path);
     QStringList words = text.split(QRegExp("\\s+"), QString::SkipEmptyParts);
@@ -38,7 +38,7 @@ void Parser::calculateStatistics(QString path)
     for(const auto& i : words ){
 
         //Ignoring 1-char words
-        if (i.length() < 2){
+        if (i.length() < length){
             continue;
         }
 

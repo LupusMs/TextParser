@@ -9,6 +9,7 @@
 #include <QDir>
 #include <QScrollArea>
 #include <QFileDialog>
+#include <QSpinBox>
 #include "parser.h"
 
 namespace Ui {
