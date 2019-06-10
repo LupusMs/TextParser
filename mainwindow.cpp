@@ -6,25 +6,22 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);    
+    ui->setupUi(this);
+    myParser = new Parser();
 }
 
 MainWindow::~MainWindow()
 {
+    delete myParser;
     delete ui;
 }
 
 // OK button clicked, starting parsing and analysing
 void MainWindow::on_pushButton_clicked()
-{
-    Parser* myParser = new Parser();   
+{       
     myParser->parseFile(ui->lineEdit->text());    
     myParser->calculateStatistics(ui->lineEdit->text());
-    ui->textBrowser->setText(myParser->getResult());
-
-
-
-    delete myParser;
+    ui->textBrowser->setText(myParser->getResult());    
 }
 
 // Selecting file

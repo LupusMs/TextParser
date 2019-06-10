@@ -17,7 +17,8 @@ class MainWindow;
 
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
+    Q_OBJECT;
+    Parser* myParser;
 
 
 public:
