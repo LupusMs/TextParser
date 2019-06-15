@@ -28,10 +28,13 @@ void Parser::parseFile(QString path)
  * Calculates words' occurences in a text
  * @param path, wordLength
  */
-void Parser::calculateStatistics(QString path, int wordLength)
+void Parser::calculateStatistics(int wordLength)
 {
-    parseFile(path);
+
     QStringList words = text.split(QRegExp("\\s+"), QString::SkipEmptyParts);
+
+    // Clean hashMap from words < wordLength
+    filterHash(wordLength);
 
     //Adding words to the hash map and calculating occurences
     //TODO use more efficient hashing?
@@ -88,4 +91,18 @@ QString Parser::getText()
 QHash<QString, int> Parser::getHashMap()
 {
     return hash;
+}
+
+/**
+ * @brief Parser::filterHash
+ * Removes from hash words that shorter than wordLength
+ * @param wordLength
+ */
+void Parser::filterHash(int wordLength)
+{
+    QHash<QString, int>::iterator i;
+    for (i = hash.begin(); i != hash.end(); ++i){
+        if(i.key().length() < wordLength)
+            hash.remove(i.key());
+    }
 }

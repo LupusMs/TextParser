@@ -20,6 +20,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT;
     Parser* myParser;
+    QString lastAddedFile;
 
 
 public:

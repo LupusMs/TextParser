@@ -21,9 +21,18 @@ void MainWindow::on_pushButton_clicked()
 {
     QString path = ui->lineEdit->text();
     int length =  ui->spinBox->value();
-    myParser->parseFile(path);
-    myParser->calculateStatistics(path, length);
-    ui->textBrowser->setText(myParser->getResult());    
+
+    //To prevent parsing the same file twice
+    if(path != lastAddedFile){
+       myParser->parseFile(path);
+       myParser->calculateStatistics(length);
+    }
+    else {
+       myParser->filterHash(length);
+    }
+    lastAddedFile = path;
+    ui->textBrowser->setText(myParser->getResult());
+
 }
 
 // Selecting file

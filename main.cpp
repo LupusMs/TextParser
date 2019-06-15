@@ -2,7 +2,7 @@
 #include <QApplication>
 #include <QTest>
 #include "test_parser.h"
-#define TEST
+//#define TEST
 using namespace std;
 
 #ifdef TEST

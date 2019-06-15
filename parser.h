@@ -15,10 +15,11 @@ class Parser
 public:
     Parser();
     void parseFile(QString path);
-    void calculateStatistics(QString path, int length);
+    void calculateStatistics(int length);
     QString getResult();
     QString getText();
     QHash<QString, int> getHashMap();
+    void filterHash(int wordLength);
 };
 
 #endif // PARSER_H
