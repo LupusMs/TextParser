@@ -14,6 +14,7 @@ public:
 private slots:
     void testParsing();
     void testResult();
+    void testWordLengthFiltering();
 };
 
 #endif // TEST_PARSER_H

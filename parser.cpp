@@ -26,9 +26,9 @@ void Parser::parseFile(QString path)
 /**
  * @brief Parser::calculateStatistics
  * Calculates words' occurences in a text
- * @param path
+ * @param path, wordLength
  */
-void Parser::calculateStatistics(QString path, int length)
+void Parser::calculateStatistics(QString path, int wordLength)
 {
     parseFile(path);
     QStringList words = text.split(QRegExp("\\s+"), QString::SkipEmptyParts);
@@ -37,8 +37,8 @@ void Parser::calculateStatistics(QString path, int length)
     //TODO use more efficient hashing?
     for(const auto& i : words ){
 
-        //Ignoring 1-char words
-        if (i.length() < length){
+        //Ignoring words which length is less
+        if (i.length() < wordLength){
             continue;
         }
 
@@ -49,7 +49,6 @@ void Parser::calculateStatistics(QString path, int length)
         else {
             //increasing the count
             hash.insert(i, hash.value(i)+ 1);
-
         }
     }
 }
@@ -84,4 +83,9 @@ QString Parser::getResult()
 QString Parser::getText()
 {
     return text;
+}
+
+QHash<QString, int> Parser::getHashMap()
+{
+    return hash;
 }

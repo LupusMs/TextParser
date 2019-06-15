@@ -1,5 +1,6 @@
 #include "test_parser.h"
 #include "parser.h"
+#include "test_minlength.h"
 #include <QTest>
 #include<QDebug>
 
@@ -30,7 +31,36 @@ void Test_Parser::testParsing()
 void Test_Parser::testResult()
 {
     Parser* parser = new Parser();
-    parser->calculateStatistics("C:/try.txt", 1);
+    parser->calculateStatistics(QDir().absoluteFilePath("C:/try.txt"), 1);
     QVERIFY(parser->getResult() == QString("der : 10 <br></br><br></br>- : 8 <br></br><br></br>Tochter : 6 <br></br><br></br>ist : 4 <br></br><br></br>ins : 3 <br></br><br></br>aufeinander : 2 <br></br><br></br>nichts.\r\nIn : 1 <br></br><br></br>"));
     delete(parser);
 }
+
+/**
+ * @brief Test_Parser::testWordLengthFiltering
+ */
+void Test_Parser::testWordLengthFiltering()
+{
+    Parser* parser = new Parser();
+    parser->calculateStatistics(QDir().absoluteFilePath("C:/try.txt"), 3);
+    QHash<QString, int> hash = parser->getHashMap();
+    QVERIFY(getMinLenght(hash) >= 3);
+    delete(parser);
+
+    parser = new Parser();
+    parser->calculateStatistics(QDir().absoluteFilePath("C:/try.txt"), 5);
+    hash = parser->getHashMap();
+    QVERIFY(getMinLenght(hash) >= 5);
+    delete(parser);
+
+    parser = new Parser();
+    parser->calculateStatistics(QDir().absoluteFilePath("C:/try.txt"), 6);
+    hash = parser->getHashMap();
+    QVERIFY(getMinLenght(hash) >= 6);
+    delete(parser);
+
+}
+
+
+
+

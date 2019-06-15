@@ -18,6 +18,7 @@ public:
     void calculateStatistics(QString path, int length);
     QString getResult();
     QString getText();
+    QHash<QString, int> getHashMap();
 };
 
 #endif // PARSER_H

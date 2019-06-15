@@ -29,11 +29,13 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
         parser.cpp \
+        test_minlength.cpp \
         test_parser.cpp
 
 HEADERS += \
         mainwindow.h \
         parser.h \
+        test_minlength.h \
         test_parser.h
 
 
@@ -46,4 +48,7 @@ QT += testlib
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    res.qrc
 
