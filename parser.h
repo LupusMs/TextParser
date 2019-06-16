@@ -12,6 +12,7 @@ class Parser
 {
     QString text;
     QHash<QString, int> hash;
+    QList<QString> files;
 public:
     Parser();
     void parseFile(QString path);
@@ -20,6 +21,7 @@ public:
     QString getText();
     QHash<QString, int> getHashMap();
     void filterHash(int wordLength);
+    QList<QString> getFiles();
 };
 
 #endif // PARSER_H

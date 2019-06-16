@@ -15,12 +15,15 @@ void Parser::parseFile(QString path)
     if(!file.open(QIODevice::ReadOnly)) {
         QMessageBox::information(0, "error", file.errorString());
     }
+    else {
+    files.append(path);
     QTextStream in(&file);
     QString output = in.readAll();
     file.close();
 
     //Update object field
     text = output;
+    }
 }
 
 /**
@@ -105,4 +108,9 @@ void Parser::filterHash(int wordLength)
         if(i.key().length() < wordLength)
             hash.remove(i.key());
     }
+}
+
+QList<QString> Parser::getFiles()
+{
+    return files;
 }

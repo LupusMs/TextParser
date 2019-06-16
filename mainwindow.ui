@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>802</width>
-    <height>469</height>
+    <width>951</width>
+    <height>475</height>
    </rect>
   </property>
   <property name="palette">
@@ -111,7 +111,7 @@
         <item>
          <widget class="QPushButton" name="pushButton_choose">
           <property name="text">
-           <string>File...</string>
+           <string>Add file...</string>
           </property>
          </widget>
         </item>
@@ -163,6 +163,29 @@
       </item>
      </layout>
     </item>
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Files processed:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTextBrowser" name="textBrowser_includedFiles">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+        <horstretch>0</horstretch>
+        <verstretch>10</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(164, 255, 236);</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -170,7 +193,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>802</width>
+     <width>951</width>
      <height>26</height>
     </rect>
    </property>

@@ -32,6 +32,12 @@ void MainWindow::on_pushButton_clicked()
     }
     lastAddedFile = path;
     ui->textBrowser->setText(myParser->getResult());
+    QString includedFiles;
+    for(QString file : myParser->getFiles()){
+        includedFiles.append(file + "<br></br>");
+    }
+
+    ui->textBrowser_includedFiles->setText(includedFiles);
 
 }
 
