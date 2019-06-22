@@ -26,6 +26,7 @@ void MainWindow::on_pushButton_clicked()
     if(path != lastAddedFile){
        myParser->parseFile(path);
        myParser->calculateStatistics(length);
+       ui->statusBar->showMessage("Parsing...", 300);
     }
     else {
        myParser->filterHash(length);
@@ -58,8 +59,3 @@ void MainWindow::on_actionRemove_all_files_triggered()
    myParser = new Parser();
 }
 
-void MainWindow::on_pushButton_2_clicked()
-{
-    QList<QString>* files = myParser->getFiles();
-    files->removeAt(1);
-}
