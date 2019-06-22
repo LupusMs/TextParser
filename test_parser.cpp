@@ -45,22 +45,22 @@ void Test_Parser::testWordLengthFiltering()
     Parser* parser = new Parser();
     parser->parseFile(QDir().absoluteFilePath("C:/try.txt"));
     parser->calculateStatistics(3);
-    QHash<QString, int> hash = parser->getHashMap();
-    QVERIFY(getMinLenght(hash) >= 3);
+    QHash<QString, int>* hash = parser->getHashMap();
+    QVERIFY(getMinLenght(*hash) >= 3);
     delete(parser);
 
     parser = new Parser();
     parser->parseFile(QDir().absoluteFilePath("C:/try.txt"));
     parser->calculateStatistics(5);
     hash = parser->getHashMap();
-    QVERIFY(getMinLenght(hash) >= 5);
+    QVERIFY(getMinLenght(*hash) >= 5);
     delete(parser);
 
     parser = new Parser();
     parser->parseFile(QDir().absoluteFilePath("C:/try.txt"));
     parser->calculateStatistics(6);
     hash = parser->getHashMap();
-    QVERIFY(getMinLenght(hash) >= 6);
+    QVERIFY(getMinLenght(*hash) >= 6);
     delete(parser);
 
 }

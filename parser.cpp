@@ -97,9 +97,9 @@ QString Parser::getText()
     return text;
 }
 
-QHash<QString, int> Parser::getHashMap()
+QHash<QString, int>* Parser::getHashMap()
 {
-    return hash;
+    return &hash;
 }
 
 /**
@@ -116,7 +116,7 @@ void Parser::filterHash(int wordLength)
     }
 }
 
-QList<QString> Parser::getFiles()
+QList<QString>* Parser::getFiles()
 {
-    return *files;
+    return files;
 }

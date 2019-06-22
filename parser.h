@@ -20,9 +20,9 @@ public:
     void calculateStatistics(int length);
     QString getResult();
     QString getText();
-    QHash<QString, int> getHashMap();
+    QHash<QString, int>* getHashMap();
     void filterHash(int wordLength);
-    QList<QString> getFiles();
+    QList<QString>* getFiles();
 };
 
 #endif // PARSER_H

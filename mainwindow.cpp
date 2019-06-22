@@ -33,7 +33,7 @@ void MainWindow::on_pushButton_clicked()
     lastAddedFile = path;
     ui->textBrowser->setText(myParser->getResult());
     QString includedFiles;
-    for(QString file : myParser->getFiles()){
+    for(QString file : *myParser->getFiles()){
         includedFiles.append(file + "<br></br>");
     }
 
@@ -56,4 +56,10 @@ void MainWindow::on_actionRemove_all_files_triggered()
    ui->textBrowser_includedFiles->clear();
    delete(myParser);
    myParser = new Parser();
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QList<QString>* files = myParser->getFiles();
+    files->removeAt(1);
 }
