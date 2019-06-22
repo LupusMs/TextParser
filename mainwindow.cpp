@@ -48,3 +48,12 @@ void MainWindow::on_pushButton_choose_clicked()
         tr("Select file"), "/", tr("Text files (*.txt);"));
     ui->lineEdit->setText(fileName);
 }
+
+//Recreate Parser object
+void MainWindow::on_actionRemove_all_files_triggered()
+{
+   ui->textBrowser->clear();  
+   ui->textBrowser_includedFiles->clear();
+   delete(myParser);
+   myParser = new Parser();
+}

@@ -32,6 +32,8 @@ private slots:
 
     void on_pushButton_choose_clicked();
 
+    void on_actionRemove_all_files_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

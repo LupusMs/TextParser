@@ -1,8 +1,14 @@
 #include "parser.h"
 Parser::Parser()
 {
-
+    files = new QList<QString>;
 }
+
+Parser::~Parser()
+{
+    delete(files);
+}
+
 
 /**
  * @brief Parser::parseFile Parsing txt file
@@ -16,7 +22,7 @@ void Parser::parseFile(QString path)
         QMessageBox::information(0, "error", file.errorString());
     }
     else {
-    files.append(path);
+    files->append(path);
     QTextStream in(&file);
     QString output = in.readAll();
     file.close();
@@ -112,5 +118,5 @@ void Parser::filterHash(int wordLength)
 
 QList<QString> Parser::getFiles()
 {
-    return files;
+    return *files;
 }

@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/img">
         <file>ParserIcon.png</file>
+        <file>delete.png</file>
     </qresource>
 </RCC>

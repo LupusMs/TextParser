@@ -12,9 +12,10 @@ class Parser
 {
     QString text;
     QHash<QString, int> hash;
-    QList<QString> files;
+    QList<QString>* files;
 public:
     Parser();
+    ~Parser();
     void parseFile(QString path);
     void calculateStatistics(int length);
     QString getResult();

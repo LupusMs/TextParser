@@ -205,8 +205,22 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionRemove_all_files"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionRemove_all_files">
+   <property name="icon">
+    <iconset>
+     <normalon>:/img/delete.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Remove all files</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
