@@ -19,6 +19,9 @@ MainWindow::~MainWindow()
 // OK button clicked, starting parsing and analysing
 void MainWindow::on_pushButton_clicked()
 {
+    //Vars to calculate elapsed time
+    long long start = QDateTime::currentMSecsSinceEpoch();
+
     QString path = ui->lineEdit->text();
     int length =  ui->spinBox->value();
 
@@ -40,6 +43,9 @@ void MainWindow::on_pushButton_clicked()
 
     ui->textBrowser_includedFiles->setText(includedFiles);
 
+    long long end = QDateTime::currentMSecsSinceEpoch();
+    long long elapsed_seconds = end-start;
+    ui->statusBar->showMessage("Elapsed time: " + QString::number(elapsed_seconds) + " ms", 10000);
 }
 
 // Selecting file

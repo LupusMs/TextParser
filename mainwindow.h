@@ -11,6 +11,8 @@
 #include <QFileDialog>
 #include <QSpinBox>
 #include "parser.h"
+#include <chrono>
+#include <QTime>
 
 namespace Ui {
 class MainWindow;
