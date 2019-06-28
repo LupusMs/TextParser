@@ -55,7 +55,7 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_pushButton_choose_clicked()
 {
     QString fileName = QFileDialog::getOpenFileName(this,
-        tr("Select file"), "/", tr("Text files (*.txt);"));
+        tr("Select file"), "/", tr("Text files(*.txt)"));
     ui->lineEdit->setText(fileName);
 }
 
