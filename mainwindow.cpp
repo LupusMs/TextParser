@@ -64,6 +64,7 @@ void MainWindow::on_actionRemove_all_files_triggered()
 {
    ui->textBrowser->clear();  
    ui->textBrowser_includedFiles->clear();
+   lastAddedFile = "null";
    delete(myParser);
    myParser = new Parser();
 }
