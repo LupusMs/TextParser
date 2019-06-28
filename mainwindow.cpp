@@ -31,9 +31,12 @@ void MainWindow::on_pushButton_clicked()
        myParser->calculateStatistics(length);
        ui->statusBar->showMessage("Parsing...", 300);
     }
+    //Following carshing on Linux. Temporaly fix
+    #ifdef Q_OS_WIN
     else {
-       myParser->filterHash(length);
-    }
+      myParser->filterHash(length);
+     }
+    #endif
     lastAddedFile = path;
     ui->textBrowser->setText(myParser->getResult());
     QString includedFiles;
