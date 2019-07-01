@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -30,13 +30,15 @@ SOURCES += \
         mainwindow.cpp \
         parser.cpp \
         test_minlength.cpp \
-        test_parser.cpp
+        test_parser.cpp \
+    dbhandler.cpp
 
 HEADERS += \
         mainwindow.h \
         parser.h \
         test_minlength.h \
-        test_parser.h
+        test_parser.h \
+    dbhandler.h
 
 
 FORMS += \

@@ -11,6 +11,7 @@
 #include <QFileDialog>
 #include <QSpinBox>
 #include "parser.h"
+#include "dbhandler.h"
 #include <chrono>
 #include <QTime>
 
@@ -23,6 +24,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT;
     Parser* myParser;
     QString lastAddedFile;
+    DBHandler* db;
 
 
 public:

@@ -2,18 +2,28 @@
 #include "ui_mainwindow.h"
 
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     myParser = new Parser();
+    db = new DBHandler();
+
+    //Creating new DB or connecting to excisting DB here
+    if (db->connect() == false){
+        QMessageBox msgBox;
+        msgBox.setText("Cannot connect or create Database");
+        msgBox.exec();
+    }
 }
 
 MainWindow::~MainWindow()
 {
     delete myParser;
     delete ui;
+    delete db;
 }
 
 // OK button clicked, starting parsing and analysing
