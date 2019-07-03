@@ -8,7 +8,7 @@ DBHandler::DBHandler()
 bool DBHandler::connect()
 {
     //Using SQLite db driver
-   QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+   db = QSqlDatabase::addDatabase("QSQLITE");
    db.setDatabaseName(dbName);
 
    if(db.open()){
@@ -27,8 +27,13 @@ bool DBHandler::connect()
 }
 
 //writing to three tables: table, book, contains
-bool DBHandler::writeData()
+bool DBHandler::writeData(QString& output, long long elapsed_seconds, QList<QString>* books, int minWordLength)
 {
+    //TODO Binding
+    QSqlQuery query;
+    query.exec("INSERT INTO my_table(date_time, output) VALUES(datetime('now'), 'test')");
 
+
+    return true;
 }
 

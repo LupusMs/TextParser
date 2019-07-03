@@ -194,7 +194,7 @@
      <x>0</x>
      <y>0</y>
      <width>951</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
@@ -206,19 +206,32 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionRemove_all_files"/>
+   <addaction name="actionSave"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionRemove_all_files">
    <property name="icon">
-    <iconset>
-     <normalon>:/img/delete.png</normalon>
-    </iconset>
+    <iconset resource="res.qrc">
+     <normaloff>:/img/delete_ic.png</normaloff>
+     <normalon>:/img/delete.png</normalon>:/img/delete_ic.png</iconset>
    </property>
    <property name="text">
     <string>Remove all files</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+D</string>
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/img/save.png</normaloff>:/img/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="toolTip">
+    <string>Save to Database</string>
    </property>
   </action>
  </widget>

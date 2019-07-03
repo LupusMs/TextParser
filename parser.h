@@ -13,7 +13,10 @@ class Parser
     QString text;
     QHash<QString, int> hash;
     QList<QString>* files;
+    long long elapsedTime;
+
 public:
+    QString output;
     Parser();
     ~Parser();
     void parseFile(QString path);
@@ -23,6 +26,8 @@ public:
     QHash<QString, int>* getHashMap();
     void filterHash(int wordLength);
     QList<QString>* getFiles();
+    long long getElapsedTime();
+    void setElapsedTime(long long time);
 };
 
 #endif // PARSER_H

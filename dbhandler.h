@@ -8,12 +8,14 @@
 static const QString dbName = "myLog.db";
 
 class DBHandler
-{    
+{
+
+    QSqlDatabase db;
 
 public:
    DBHandler();
    bool connect();
-   bool writeData();
+   bool writeData(QString& output, long long elapsed_seconds, QList<QString>* books, int minWordLength);
    void readData();
 };
 

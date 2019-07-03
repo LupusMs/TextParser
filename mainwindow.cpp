@@ -58,6 +58,7 @@ void MainWindow::on_pushButton_clicked()
 
     long long end = QDateTime::currentMSecsSinceEpoch();
     long long elapsed_seconds = end-start;
+    myParser->setElapsedTime(elapsed_seconds);
     ui->statusBar->showMessage("Elapsed time: " + QString::number(elapsed_seconds) + " ms", 10000);
 }
 
@@ -79,3 +80,9 @@ void MainWindow::on_actionRemove_all_files_triggered()
    myParser = new Parser();
 }
 
+//Saving to a DataBase
+void MainWindow::on_actionSave_triggered()
+{
+   db->writeData(myParser->output, myParser->getElapsedTime(), myParser->getFiles(), ui->spinBox->value());
+
+}

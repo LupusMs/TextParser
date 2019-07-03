@@ -2,5 +2,7 @@
     <qresource prefix="/img">
         <file>ParserIcon.png</file>
         <file>delete.png</file>
+        <file>save.png</file>
+        <file>delete_ic.png</file>
     </qresource>
 </RCC>

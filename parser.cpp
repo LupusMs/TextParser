@@ -89,7 +89,9 @@ QString Parser::getResult()
     for (int i=0;i<sortedRes.count();i++){
         QPair<int, QString> pair = sortedRes.at(i);
         res +=  QString(pair.second + " : %1 <br></br><br></br>").arg(pair.first);
-    }    return res;
+    }
+    output = res;
+    return res;
 }
 
 QString Parser::getText()
@@ -120,3 +122,14 @@ QList<QString>* Parser::getFiles()
 {
     return files;
 }
+
+long long Parser::getElapsedTime()
+{
+    return elapsedTime;
+}
+
+void Parser::setElapsedTime(long long time)
+{
+    elapsedTime = time;
+}
+
