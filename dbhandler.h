@@ -1,9 +1,12 @@
 #ifndef DBHANDLER_H
 #define DBHANDLER_H
 #include <QString>
+#include <QVariant>
 #include <QSql>
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QMessageBox>
+#include <QDebug>
 
 static const QString dbName = "myLog.db";
 
