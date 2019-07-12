@@ -25,6 +25,7 @@ class MainWindow : public QMainWindow
     Parser* myParser;
     QString lastAddedFile;
     DBHandler* db;
+    QDialog *dialog;
 
 
 public:
@@ -41,6 +42,8 @@ private slots:
 
 
     void on_actionSave_triggered();
+
+    void on_actionView_History_triggered();
 
 private:
     Ui::MainWindow *ui;

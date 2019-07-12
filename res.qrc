@@ -4,5 +4,6 @@
         <file>delete.png</file>
         <file>save.png</file>
         <file>delete_ic.png</file>
+        <file>history.png</file>
     </qresource>
 </RCC>

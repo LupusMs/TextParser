@@ -42,7 +42,8 @@ HEADERS += \
 
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    databaseoutput.ui
 
 QT += testlib
 

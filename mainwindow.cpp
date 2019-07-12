@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "ui_databaseoutput.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -24,6 +24,8 @@ MainWindow::~MainWindow()
     delete myParser;
     delete ui;
     delete db;
+    dialog->close();
+    delete dialog;
 }
 
 // OK button clicked, starting parsing and analysing
@@ -85,4 +87,12 @@ void MainWindow::on_actionSave_triggered()
 {
    db->writeData(myParser->output, myParser->getElapsedTime(), myParser->getFiles(), ui->spinBox->value());
 
+}
+
+void MainWindow::on_actionView_History_triggered()
+{
+    dialog = new QDialog(this);
+    Ui::Form ui;
+    ui.setupUi(dialog);
+    dialog->show();
 }

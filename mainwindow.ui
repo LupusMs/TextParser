@@ -194,7 +194,7 @@
      <x>0</x>
      <y>0</y>
      <width>951</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
@@ -207,6 +207,7 @@
    </attribute>
    <addaction name="actionRemove_all_files"/>
    <addaction name="actionSave"/>
+   <addaction name="actionView_History"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionRemove_all_files">
@@ -216,7 +217,7 @@
      <normalon>:/img/delete.png</normalon>:/img/delete_ic.png</iconset>
    </property>
    <property name="text">
-    <string>Remove all files</string>
+    <string>Clear current workspace</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+R</string>
@@ -232,6 +233,15 @@
    </property>
    <property name="toolTip">
     <string>Save to Database</string>
+   </property>
+  </action>
+  <action name="actionView_History">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/img/history.png</normaloff>:/img/history.png</iconset>
+   </property>
+   <property name="text">
+    <string>View History</string>
    </property>
   </action>
  </widget>
