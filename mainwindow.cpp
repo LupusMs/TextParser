@@ -43,7 +43,7 @@ void MainWindow::on_pushButton_clicked()
        myParser->calculateStatistics(length);
        ui->statusBar->showMessage("Parsing...", 300);
     }
-    //Following carshing on Linux. Temporaly fix
+    //Following crashing on Linux. Temporaly fix
     #ifdef Q_OS_WIN
     else {
       myParser->filterHash(length);
@@ -85,14 +85,15 @@ void MainWindow::on_actionRemove_all_files_triggered()
 //Saving to a DataBase
 void MainWindow::on_actionSave_triggered()
 {
-   db->writeData(myParser->output, myParser->getElapsedTime(), myParser->getFiles(), ui->spinBox->value());
-
+    db->writeData(myParser->output, myParser->getElapsedTime(), myParser->getFiles(), ui->spinBox->value());
 }
 
+//TODO Implement DB history output
 void MainWindow::on_actionView_History_triggered()
 {
     dialog = new QDialog(this);
     Ui::Form ui;
     ui.setupUi(dialog);
+    ui.textBrowser->setText("Output will be here");
     dialog->show();
 }
