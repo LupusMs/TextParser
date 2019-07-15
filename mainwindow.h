@@ -14,7 +14,7 @@
 #include "dbhandler.h"
 #include <chrono>
 #include <QTime>
-#include "dbindexdialog.h"
+#include "db_indexdialog.h"
 
 namespace Ui {
 class MainWindow;

@@ -32,7 +32,8 @@ SOURCES += \
         test_minlength.cpp \
         test_parser.cpp \
     dbhandler.cpp \
-    dbindexdialog.cpp
+    db_indexdialog.cpp \
+    db_entrydialog.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,12 +41,14 @@ HEADERS += \
         test_minlength.h \
         test_parser.h \
     dbhandler.h \
-    dbindexdialog.h
+    db_indexdialog.h \
+    db_entrydialog.h
 
 
 FORMS += \
         mainwindow.ui \
-    databaseoutput.ui
+    databaseoutput.ui \
+    db_entrydialog.ui
 
 QT += testlib
 
