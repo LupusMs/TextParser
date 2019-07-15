@@ -91,9 +91,6 @@ void MainWindow::on_actionSave_triggered()
 //TODO Implement DB history output
 void MainWindow::on_actionView_History_triggered()
 {
-    dialog = new QDialog(this);
-    Ui::Form ui;
-    ui.setupUi(dialog);
-    ui.textBrowser->setText("Output will be here");
+    dialog = new DbIndexDialog(this);
     dialog->show();
 }

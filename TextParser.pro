@@ -31,14 +31,16 @@ SOURCES += \
         parser.cpp \
         test_minlength.cpp \
         test_parser.cpp \
-    dbhandler.cpp
+    dbhandler.cpp \
+    dbindexdialog.cpp
 
 HEADERS += \
         mainwindow.h \
         parser.h \
         test_minlength.h \
         test_parser.h \
-    dbhandler.h
+    dbhandler.h \
+    dbindexdialog.h
 
 
 FORMS += \

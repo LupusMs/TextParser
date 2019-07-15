@@ -14,6 +14,7 @@
 #include "dbhandler.h"
 #include <chrono>
 #include <QTime>
+#include "dbindexdialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -25,7 +26,7 @@ class MainWindow : public QMainWindow
     Parser* myParser;
     QString lastAddedFile;
     DBHandler* db;
-    QDialog *dialog;
+    DbIndexDialog *dialog;
 
 
 public:
