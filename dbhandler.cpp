@@ -65,3 +65,20 @@ bool DBHandler::writeData(QString& output, long long elapsed_seconds, QList<QStr
 
 }
 
+/**
+ * @brief DBHandler::readDbIndex
+ * @return returning date_time of all available entries
+ */
+QSharedPointer<QList<QString>> DBHandler::readDbIndex()
+{
+    QSqlQuery query;
+
+    query.exec("SELECT date_time FROM my_table");
+    while (query.next()) {
+       list->append(query.value(0).toString());
+    }
+
+    return list;
+
+}
+

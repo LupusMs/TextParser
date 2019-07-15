@@ -8,18 +8,19 @@
 #include <QMessageBox>
 #include <QDebug>
 
+
 static const QString dbName = "myLog.db";
 
 class DBHandler
-{
-
+{    
     QSqlDatabase db;
+    QSharedPointer<QList<QString>> list = QSharedPointer<QList<QString>>(new QList<QString>());
 
 public:
    DBHandler();
    bool connect();
    bool writeData(QString& output, long long elapsed_seconds, QList<QString>* books, int minWordLength);
-   void readData();
+   QSharedPointer<QList<QString>> readDbIndex();
 };
 
 #endif // DBHANDLER_H

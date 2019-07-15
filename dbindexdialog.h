@@ -5,7 +5,8 @@
 #include <QDialog>
 #include <QLabel>
 #include <QScrollArea>
-
+#include <QSharedPointer>
+#include <dbhandler.h>
 
 namespace Ui {
     class Form;
@@ -15,8 +16,10 @@ class DbIndexDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit DbIndexDialog(QWidget *parent = nullptr);
+
+     DbIndexDialog(QWidget *parent = nullptr);
     ~DbIndexDialog();
+     void createList(DBHandler &db);
 
 signals:
 

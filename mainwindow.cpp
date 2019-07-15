@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
+    ui->setupUi(this);    
     myParser = new Parser();
     db = new DBHandler();
 
@@ -92,5 +92,6 @@ void MainWindow::on_actionSave_triggered()
 void MainWindow::on_actionView_History_triggered()
 {
     dialog = new DbIndexDialog(this);
+    dialog->createList(*db);
     dialog->show();
 }
