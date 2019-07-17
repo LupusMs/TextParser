@@ -9,12 +9,13 @@ DbIndexDialog::DbIndexDialog(QWidget *parent) : QDialog(parent), ui(new Ui::Form
 DbIndexDialog::~DbIndexDialog()
 {
     delete ui;    
-    delete entryDialog;
+    delete entryDialog;    
 }
 
 
 void DbIndexDialog::createList(DBHandler &db)
 {
+    this->db = &db;
     QSharedPointer<QList<QString>> list = db.readDbIndex();
 
     for(int i = 0; i < list->size(); ++i){
@@ -43,8 +44,8 @@ void DbIndexDialog::on_showButton_clicked()
         entryDialog = new DbEntryDialog(this);
         entryDialog->setModal(true);
         QString caption = ui->listWidget->selectedItems().constFirst()->text();
-        qDebug()<<caption;
         entryDialog->setCaption(caption);
+        entryDialog->setTableData(db->readDbData(caption));
         entryDialog->show();
     }
     else{

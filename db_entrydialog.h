@@ -2,6 +2,7 @@
 #define DB_ENTRYDIALOG_H
 
 #include <QDialog>
+#include <dbhandler.h>
 /**
  *Shows all data for chosen entry
  */
@@ -17,6 +18,7 @@ public:
     explicit DbEntryDialog(QWidget *parent = 0);
     ~DbEntryDialog();
     void setCaption(QString caption);
+    void setTableData(QSharedPointer<QList<QString>> data);
 
 private:
     Ui::DbEntryDialog *ui;

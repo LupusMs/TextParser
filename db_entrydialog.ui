@@ -41,8 +41,11 @@
        <height>100</height>
       </size>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
      <property name="rowCount">
-      <number>0</number>
+      <number>1</number>
      </property>
      <property name="columnCount">
       <number>3</number>
@@ -53,6 +56,7 @@
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>206</number>
      </attribute>
+     <row/>
      <column>
       <property name="text">
        <string>Books</string>
@@ -78,7 +82,11 @@
     </widget>
    </item>
    <item>
-    <widget class="QTextBrowser" name="textBrowser"/>
+    <widget class="QTextBrowser" name="textBrowser">
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

@@ -11,7 +11,7 @@
 class Parser
 {
     QString text;
-    QHash<QString, int> hash;
+    QHash<QString, int>* hash;
     QList<QString>* files;
     long long elapsedTime;
 

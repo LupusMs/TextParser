@@ -75,10 +75,32 @@ QSharedPointer<QList<QString>> DBHandler::readDbIndex()
 
     query.exec("SELECT date_time FROM my_table");
     while (query.next()) {
-       list->append(query.value(0).toString());
+       indexList->append(query.value(0).toString());
     }
 
-    return list;
+    return indexList;
+
+}
+
+QSharedPointer<QList<QString> > DBHandler::readDbData(QString date_time)
+{
+    QSqlQuery query;
+    query.prepare("SELECT books, min_word_length, parsing_time, output FROM my_table WHERE date_time = ?");
+    query.addBindValue(date_time);
+    query.exec();
+    query.next();
+
+    //Deleting data from previous requests
+    if(dataList->size() > 0)
+    {
+        dataList->clear();
+    }
+    dataList->append(query.value(0).toString());
+    dataList->append(query.value(1).toString());
+    dataList->append(query.value(2).toString());
+    dataList->append(query.value(3).toString());
+
+    return dataList;
 
 }
 

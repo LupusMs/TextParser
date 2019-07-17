@@ -2,11 +2,13 @@
 Parser::Parser()
 {
     files = new QList<QString>;
+    hash = new QHash<QString, int>;
 }
 
 Parser::~Parser()
 {
-    delete(files);
+    delete files;
+    delete hash;
 }
 
 
@@ -54,13 +56,13 @@ void Parser::calculateStatistics(int wordLength)
             continue;
         }
 
-        if(!hash.contains(i)){
+        if(!hash->contains(i)){
             //adding new word
-           hash.insert(i, 1);
+           hash->insert(i, 1);
         }
         else {
             //increasing the count
-            hash.insert(i, hash.value(i)+ 1);
+            hash->insert(i, hash->value(i)+ 1);
         }
     }
 }
@@ -72,7 +74,7 @@ void Parser::calculateStatistics(int wordLength)
 QString Parser::getResult()
 {
     QString res;
-    QHashIterator<QString, int> i(hash);
+    QHashIterator<QString, int> i(*hash);
     QList<QPair<int,QString> > sortedRes;
 
     //Filling QList
@@ -101,7 +103,7 @@ QString Parser::getText()
 
 QHash<QString, int>* Parser::getHashMap()
 {
-    return &hash;
+    return hash;
 }
 
 /**
@@ -112,9 +114,15 @@ QHash<QString, int>* Parser::getHashMap()
 void Parser::filterHash(int wordLength)
 {
     QHash<QString, int>::iterator i;
-    for (i = hash.begin(); i != hash.end(); ++i){
-        if(i.key().length() < wordLength)
-            hash.remove(i.key());
+    QList<QString> toBeDeleted;
+    for (i = hash->begin(); i != hash->end(); ++i){
+        if(i.key().length() < wordLength){
+            toBeDeleted.append(i.key());
+        }
+    }
+
+    foreach(QString key, toBeDeleted){
+        hash->remove(key);
     }
 }
 

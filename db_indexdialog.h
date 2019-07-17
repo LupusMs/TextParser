@@ -20,6 +20,7 @@ class DbIndexDialog : public QDialog
 {
     Q_OBJECT
     DbEntryDialog *entryDialog;
+    DBHandler *db;
 public:
 
      DbIndexDialog(QWidget *parent = nullptr);
