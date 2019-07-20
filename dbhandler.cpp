@@ -12,10 +12,9 @@ bool DBHandler::connect()
    db.setDatabaseName(dbName);
 
    if(db.open()){
-       QSqlQuery query;
-       query.exec("CREATE TABLE IF NOT EXISTS my_table(t_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                  "date_time TEXT, output TEXT, books TEXT, parsing_time INTEGER, min_word_length INTEGER)");
-       return true;
+       QSqlQuery query;       
+       return query.exec("CREATE TABLE IF NOT EXISTS my_table(t_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                         "date_time TEXT, output TEXT, books TEXT, parsing_time INTEGER, min_word_length INTEGER)");
    }
    else{
        return false;

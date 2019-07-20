@@ -29,6 +29,7 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
         parser.cpp \
+    test_database.cpp \
         test_minlength.cpp \
         test_parser.cpp \
     dbhandler.cpp \
@@ -38,6 +39,7 @@ SOURCES += \
 HEADERS += \
         mainwindow.h \
         parser.h \
+    test_database.h \
         test_minlength.h \
         test_parser.h \
     dbhandler.h \

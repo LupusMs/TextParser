@@ -2,11 +2,13 @@
 #include <QApplication>
 #include <QTest>
 #include "test_parser.h"
-#define TEST
+#include "test_database.h"
+//#define TEST
 using namespace std;
 
 #ifdef TEST
-QTEST_MAIN(Test_Parser);
+//QTEST_MAIN(Test_Parser);
+QTEST_MAIN(Test_Database);
 
 #else
 int main(int argc, char *argv[])
