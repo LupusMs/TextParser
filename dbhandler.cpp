@@ -54,8 +54,8 @@ bool DBHandler::writeData(QString& output, long long elapsed_seconds, QList<QStr
          return true;
     }
     else{
-        msgBox.setText("Cannot write to Database");
-        msgBox.exec();
+        msgBox.setText("Cannot write to Database<br/>Error: " + query.lastError().text());
+                msgBox.exec();
         return false;
     }
 

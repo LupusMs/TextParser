@@ -7,6 +7,7 @@
 #include <QSqlQuery>
 #include <QMessageBox>
 #include <QDebug>
+#include <QSqlError>
 
 
 static const QString dbName = "myLog.db";
