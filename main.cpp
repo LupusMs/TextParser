@@ -2,19 +2,11 @@
 #include <QApplication>
 #include <QTest>
 #include "test_parser.h"
-//#define TEST
+#define TEST
 using namespace std;
 
 #ifdef TEST
-int main(int argc, char *argv[])
-{
-    freopen("testing_log.log", "w", stdout);
-    QApplication a(argc, argv);
-
-    QTest::qExec(new Test_Parser, argc, argv);
-
-    return 0;
-}
+QTEST_MAIN(Test_Parser);
 
 #else
 int main(int argc, char *argv[])
