@@ -35,8 +35,12 @@ private slots:
      void on_closeButton_clicked();
      void on_showButton_clicked();
 
+     void on_deleteButton_clicked();
+
 private:
     Ui::Form *ui;
+    //Displaying alert dialog if nothing is selected
+    bool checkIfSelected();
 };
 
 #endif // DBINDEXDIALOG_H
