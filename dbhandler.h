@@ -24,6 +24,7 @@ public:
    bool writeData(QString& output, long long elapsed_seconds, QList<QString>* books, int minWordLength);
    QSharedPointer<QList<QString>> readDbIndex();
    QSharedPointer<QList<QString>> readDbData(QString date_time);
+   bool deleteEntry(QString& entry);
 };
 
 #endif // DBHANDLER_H

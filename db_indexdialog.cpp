@@ -51,10 +51,11 @@ void DbIndexDialog::on_showButton_clicked()
 }
 
 //TODO Implement slots for buttons
+//TODO delete item from list
 //Deleting selected entry from a database
 void DbIndexDialog::on_deleteButton_clicked()
 {
-    //Notifying user if no entry is selected
+    //if user selected an entry
     if(checkIfSelected() == true){
         QMessageBox msgBox;
         QString* msg = new QString("Delete entry ");
@@ -62,7 +63,19 @@ void DbIndexDialog::on_deleteButton_clicked()
         msgBox.setText(*msg);
         msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
         msgBox.setDefaultButton(QMessageBox::Ok);
-        msgBox.exec();
+
+        //Deleting selected entry & updating list of current available entries
+        if(msgBox.exec() == QMessageBox::Ok)
+        {
+            QString* entry = new QString(ui->listWidget->selectedItems().value(0)->text());
+            db->deleteEntry(*entry);
+            for(int i = 0; i < ui->listWidget->count(); ++i){
+                if (ui->listWidget->item(i)->text() == entry){                    
+                    qDeleteAll(ui->listWidget->selectedItems());
+                    qDebug()<< "removing entry from listWidget";
+                }
+            }            
+        }
     }
 
 

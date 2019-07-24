@@ -102,4 +102,16 @@ QSharedPointer<QList<QString> > DBHandler::readDbData(QString date_time)
     return dataList;
 
 }
+/** Deletes entry from a database
+ * @brief DBHandler::deleteEntry
+ * @param entry
+ * @return
+ */
+bool DBHandler::deleteEntry(QString &entry)
+{
+    QSqlQuery query;
+    query.prepare("DELETE FROM my_table WHERE date_time = ?");
+    query.addBindValue(entry);
+    return query.exec();
+}
 
