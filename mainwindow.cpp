@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);    
     myParser = new Parser(this);
-    db = new DBHandler();
+    db = new DBHandler(this);
 
     //Creating new DB or connecting to excisting DB here
     if (db->connect() == false){
@@ -22,7 +22,6 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete db;
     dialog->close();
     delete dialog;
 }

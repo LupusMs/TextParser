@@ -1,8 +1,13 @@
 #include "dbhandler.h"
 
-DBHandler::DBHandler()
+DBHandler::DBHandler(QObject *parent) : QObject(parent)
 {    
+    qDebug()<<"DbHandler created";
+}
 
+DBHandler::~DBHandler()
+{
+  qDebug()<<"DbHandler destroyed";
 }
 
 bool DBHandler::connect()
