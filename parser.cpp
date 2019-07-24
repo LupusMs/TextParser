@@ -1,14 +1,17 @@
+//TODO make the process case insensitive - all to lower case
 #include "parser.h"
-Parser::Parser()
+Parser::Parser(QObject *parent) : QObject(parent)
 {
     files = new QList<QString>;
     hash = new QHash<QString, int>;
+    qDebug()<<"Parser created";
 }
 
 Parser::~Parser()
 {
     delete files;
     delete hash;
+    qDebug()<<"Parser deleted";
 }
 
 

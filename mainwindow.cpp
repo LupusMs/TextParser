@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);    
-    myParser = new Parser();
+    myParser = new Parser(this);
     db = new DBHandler();
 
     //Creating new DB or connecting to excisting DB here
@@ -21,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    delete myParser;
     delete ui;
     delete db;
     dialog->close();
@@ -74,8 +73,8 @@ void MainWindow::on_actionRemove_all_files_triggered()
    ui->textBrowser->clear();  
    ui->textBrowser_includedFiles->clear();
    lastAddedFile = "null";
-   delete(myParser);
-   myParser = new Parser();
+   delete myParser;
+   myParser = new Parser(this);
 }
 
 //Saving to a DataBase

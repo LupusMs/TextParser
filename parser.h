@@ -2,14 +2,16 @@
 #define PARSER_H
 #include <QString>
 #include <QFile>
+#include <QObject>
 #include <QMessageBox>
 #include <QTextStream>
 #include <sstream>
 #include <string>
 #include <QDebug>
 
-class Parser
+class Parser : public QObject
 {
+    Q_OBJECT
     QString text;
     QHash<QString, int>* hash;
     QList<QString>* files;
@@ -17,7 +19,7 @@ class Parser
 
 public:
     QString output;
-    Parser();
+    explicit Parser(QObject *parent = nullptr);
     ~Parser();
     void parseFile(QString path);
     void calculateStatistics(int length);
